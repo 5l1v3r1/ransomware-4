@@ -1,0 +1,4 @@
+*.un~
+*.tmp
+~*.docx
+.~lock.*
