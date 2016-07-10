@@ -59,7 +59,7 @@ Cookie: disclaimer_accepted=1
   - User agent: `Mozilla/5.0 (Windows NT 6.1; rv:31.0) Gecko/20100101 Firefox/31.0`
   - Cookie: `disclaimer_accepted = 1`
   - ไฟล์บนเซิร์ฟเวอร์ที่มัลแวร์จะทำการส่งข้อมูลไปคือไฟล์ `img.php`
-  - เมธอดการส่งข้อมูลแบบ `GET`
+  - เมธอดการส่งข้อมูลแบบ GET
 - รายการเซิร์ฟเวอร์ที่ใช้ออกคำสั่งและควบคุมซึ่งตรวจพบในขั้นตอนของการวิเคราะห์มัลแวร์ ได้แก่
   - `zpr5huq4bgmutfnf.onion.to` / `zpr5huq4bgmutfnf.tor2web.org`
   - `gfdkotriam.fo4j4wnq51hepa.com` (512)
@@ -87,12 +87,12 @@ data=05C581E775D72353DB0F1CEEDF95B841DA7D786E6D21E8A95452E3FAC3120F07895692760CE
 ```
 
 - รายการเซิร์ฟเวอร์ที่ใช้ออกคำสั่งและควบคุมซึ่งตรวจพบในขั้นตอนของการวิเคราะห์มัลแวร์ ได้แก่
-  - `addagapublicschool.com` (404)
-  - `helpdesk.keldon.info` (404)
-  - `coldheartedny.com` (200)
-  - `closerdaybyday.info` (โดเมนถูกยกเลิกการให้บริการ)
-  - `studiosundaytv.com` (404)
-  - `thejonesact.com` (404)
+  - addagapublicschool.com (404)
+  - helpdesk.keldon.info (404)
+  - coldheartedny.com (200)
+  - closerdaybyday.info (404)
+  - studiosundaytv.com (404)
+  - thejonesact.com (404)
 - ตัวอย่างของพฤติกรรมทางด้านเครือข่ายของ TeslaCrypt_2016_1 สามารถดาวโหลดได้จาก [teslacrypt_2016_1.pcap](https://github.com/pe3zx/Ransomware/blob/master/Resources/TeslaCrypt_2016_1/teslacrypt_2016_1.pcap)
 
 **TeslaCrypt_2016_2**
