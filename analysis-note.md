@@ -119,3 +119,25 @@ data=DF968CE68B47D6E115623F6FF2A1E7B20A9B882E7F2ACF525D1AAFA1C0F4D84E02125DE89A9
   - 43nutrientes.com (400)
   - colinmccarthynfl.com (200)
 - ตัวอย่างของพฤติกรรมทางด้านเครือข่ายของ TeslaCrypt_2016_2 สามารถดาวโหลดได้จาก [teslacrypt_2016_2.pcap](https://github.com/pe3zx/Ransomware/blob/master/Resources/TeslaCrypt_2016_2/teslacrypt_2016_2.pcap)
+
+## Process and Thread Behavior
+
+**CryptoLocker**
+
+CryptoLocker นั้นเมื่อถึงจุดหนึ่งแล้วมัลแวร์จะมีการสร้างโปรเซสขึ้นมาใหม่ อ้างอิงจาก [method_7](https://github.com/pe3zx/ransomware/blob/master/Resources/CryptoLocker/decompiled/GClass0.cs#L313) ซึ่งเป็นฟังก์ชันสำหรับการสร้างชื่อแบบสุ่มใหม่ ชื่อที่ถูกสุ่มขึ้นมาของโปรเซสใหม่นั้นจะมีลักษณะแบบสุ่มขนาดความยาว 10 ตัวอักษร โดยชื่อของโปรเซสใหม่นี้มีที่มาจากผลลัพธ์ 10 ตัวอักษรของการใช้ฟังก์ชันแฮช SHA-1 ในการแฮชค่า MachineGuid จากตัวแปร [string_0](https://github.com/pe3zx/ransomware/blob/master/Resources/CryptoLocker/decompiled/GClass0.cs#L34) ที่ถูกเข้ารหัสโดยอัลกอริธึม AES กุญแจที่ถูกใช้ในการเข้ารหัสนี้จะอยู่ที่ตัวแปร [string_2](https://github.com/pe3zx/ransomware/blob/master/Resources/CryptoLocker/decompiled/GClass0.cs#L38) ตัวอย่างของชื่อโปรเซสใหม่ เช่น 66BDBF2E65.exe นอกจากนั้นมัลแวร์ยังมีการเรียกใช้โปรเซส taskkill.exe กับพารามิเตอร์ /F /IM ในการปิดโปรเซสของมัลแวร์ที่ทำงานอยู่ก่อนด้วยใน [method_1](https://github.com/pe3zx/ransomware/blob/master/Resources/CryptoLocker/decompiled/GClass0.cs#L194)
+
+**TeslaCrypt_2015**
+
+TeslaCrypt_2015 จะมีการสร้างโปรเซสใหม่โดยการตั้งชื่อในลักษณะ svc([a-z]{3}).exe เช่น svcivy.exe โดยมัลแวร์จะมีการเรียกโปรเซส vssadmin.exe ขึ้นมาเพื่อทำการลบ shadow copies ซึ่งเป็นไฟล์แบ็คอัพของเซอร์วิส Volume Shadow Copy ด้วย และเมือการเข้ารหัสเสร็จแล้ว มัลแวร์จึงจะมีการเรียกโปรเซสอื่น ๆ ที่เกี่ยวข้องกับการแสดงรายละเอียดการโอนเงินค่าไถ่ อาทิ IEXPLORER.EXE และ NOTEPAD.EXE
+
+![ลักษณะการสร้างโปรเซสใหม่ของ TeslaCrypt_2015](https://i.imgur.com/PueS5CY.png)
+
+**TeslaCrypt_2016_1**
+
+TeslaCrypt_2016/1 จะมีการสร้างโปรเซสใหม่โดยใช้ชื่อว่า wlrmdr.exe เสมอ และเช่นเดียวกับ TeslaCrypt_2015 มัลแวร์จะมีการเรียกโปรเซส อาทิ IEXPLORER.EXE และ NOTEPAD.EXE เพื่อแสดงรายละเอียดการโอนเงินค่าไถ่เมื่อการเข้ารหัสเสร็จสิ้น
+
+![ลักษณะการสร้างโปรเซสใหม่ของ TeslaCrypt_2016_1](https://i.imgur.com/Jf5pjuD.png)
+
+**TeslaCrypt_2016/2**
+
+TeslaCrypt_2016/2 จะมีการสร้างโปรเซสใหม่โดยมีชื่อในลักษณะสุ่มขนาดความยาว 12 ตัวอักษร เช่น yrovvcaexhyo.exe
